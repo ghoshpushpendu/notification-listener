@@ -7,7 +7,10 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 import android.support.v4.content.LocalBroadcastManager;
-
+import android.app.Notification;
+import modals.Action;
+import com.robj.notificationhelperlibrary.utils.NotificationUtils;
+import android.app.PendingIntent;
 
 public class NotificationService extends NotificationListenerService {
 
@@ -27,7 +30,7 @@ public class NotificationService extends NotificationListenerService {
 
 
         String pack = sbn.getPackageName();
-        String ticker = sbn.getNotification().tickerText.toString();
+        String ticker = "";
         Bundle extras = sbn.getNotification().extras;
         String title = extras.getString("android.title");
         String text = extras.getCharSequence("android.text").toString();
@@ -42,6 +45,20 @@ public class NotificationService extends NotificationListenerService {
         msgrcv.putExtra("ticker", ticker);
         msgrcv.putExtra("title", title);
         msgrcv.putExtra("text", text);
+        msgrcv.putExtra("sbn", sbn);
+
+        if(pack.equals("com.whatsapp")){
+            NotificationService.this.cancelNotification(sbn.getKey());
+            Action action = NotificationUtils.getQuickReplyAction(sbn.getNotification(), getPackageName());
+
+            if (action != null) {
+                try {
+                    action.sendReply(getApplicationContext(),"How are you today");
+                } catch (PendingIntent.CanceledException e) {
+                }
+            } else {
+            }
+        }
 
         LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
 

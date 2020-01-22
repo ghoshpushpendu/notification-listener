@@ -2,6 +2,7 @@ package com.example.pushpendu.coolthings.home;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.service.notification.StatusBarNotification;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -160,17 +161,11 @@ public class HomeActivity extends AppCompatActivity
             Log.d("title", "");
             Log.d("description", "");
 
+//            if(pack == "com.whatsapp"){
+//                Action action = NotificationUtils.getQuickReplyAction(sbn.getNotification(), getPackageName());
+//
+//            }
 
-
-//            TableRow tr = new TableRow(getApplicationContext());
-//            tr.setLayoutParams(new TableRow.LayoutParams( TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
-//            TextView textview = new TextView(getApplicationContext());
-//            textview.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT,1.0f));
-//            textview.setTextSize(20);
-//            textview.setTextColor(Color.parseColor("#0B0719"));
-//            textview.setText(Html.fromHtml(pack +"<br><b>" + title + " : </b>" + text));
-//            tr.addView(textview);
-//            tab.addView(tr);
         }
     };
 }
