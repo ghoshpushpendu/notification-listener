@@ -1,5 +1,6 @@
 package com.example.pushpendu.coolthings.home;
 
+import android.app.PendingIntent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.service.notification.StatusBarNotification;
@@ -28,6 +29,10 @@ import android.text.Html;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.robj.notificationhelperlibrary.utils.NotificationUtils;
+
+import modals.Action;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -157,15 +162,6 @@ public class HomeActivity extends AppCompatActivity
             String pack = intent.getStringExtra("package");
             String title = intent.getStringExtra("title");
             String text = intent.getStringExtra("text");
-            Log.d("package", "");
-            Log.d("title", "");
-            Log.d("description", "");
-
-//            if(pack == "com.whatsapp"){
-//                Action action = NotificationUtils.getQuickReplyAction(sbn.getNotification(), getPackageName());
-//
-//            }
-
         }
     };
 }
