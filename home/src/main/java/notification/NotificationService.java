@@ -56,36 +56,38 @@ public class NotificationService extends NotificationListenerService {
             msgrcv.putExtra("title", title);
             msgrcv.putExtra("text", text);
 //            LocalBroadcastManager.getInstance(context).sendBroadcast(msgrcv);
+                                reply = "Hey, I am busy now. Ping me back after some time or call Pushpendu on +917047434141 if this is urgent";
+                    reply(action,context,reply);
 
             // make a api call here
 
-            JSONObject json = new JSONObject();
-            try{
-                json.put("name","morpheus");
-                json.put("job","leader");
-            }catch (JSONException e){
-                e.printStackTrace();
-            }
-            String url = " https://reqres.in/api/users";
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, json,
-                    new Response.Listener <JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            System.out.println("responce------->>>>>>"+response.toString());
-                            try {
-                                JSONObject serverResp = new JSONObject(response.toString());
-                                reply = "Hey ! Happy New Year";
-                            }catch (JSONException e){
-                                e.printStackTrace();
-                            }
-                        }
-                    }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    reply = "Hey, I am busy now. Ping me back after some time or call Pushpendu on +917047434141 if this is urgent";
-                    reply(action,context,reply);
-                }
-            });
+//            JSONObject json = new JSONObject();
+//            try{
+//                json.put("name","morpheus");
+//                json.put("job","leader");
+//            }catch (JSONException e){
+//                e.printStackTrace();
+//            }
+//            String url = " https://reqres.in/api/users";
+//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, json,
+//                    new Response.Listener <JSONObject>() {
+//                        @Override
+//                        public void onResponse(JSONObject response) {
+//                            System.out.println("responce------->>>>>>"+response.toString());
+//                            try {
+//                                JSONObject serverResp = new JSONObject(response.toString());
+//                                reply = "Hey ! Happy New Year";
+//                            }catch (JSONException e){
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    reply = "Hey, I am busy now. Ping me back after some time or call Pushpendu on +917047434141 if this is urgent";
+//                    reply(action,context,reply);
+//                }
+//            });
             // on error
 //            reply = "Hey, I am busy now. Ping me back after some time or call Pushpendu on +917047434141 if this is urgent";
 //            reply(action,context,reply);
